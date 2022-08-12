@@ -11,7 +11,7 @@ set(CMAKE_C_STANDARD 11)
 
 option(USE_PTHREADS "Use multiple POSIX threads for calculating hashes" ON)
 option(USE_OPENSSL "Use the SHA1 implementation in the OpenSSL library" ON)
-option(USE_OPENSSL_DEPRECATED "Use deprecated OpenSSL functions" ON)
+option(USE_OPENSSL_DEPRECATED "Use deprecated OpenSSL functions" OFF)
 option(USE_LONG_OPTIONS "Enable long options" ON)
 option(USE_LARGE_FILES "Needed on certain 32bit OSes (notably 32bit Linux) to support files and torrents > 2GiB" ON)
 option(NO_HASH_CHECK "Disable a redundant check to see if the amount of bytes read from files while hashing matches the sum of reported file sizes" ON)
