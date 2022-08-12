@@ -1,0 +1,34 @@
+name: Build
+
+on: push
+
+jobs:
+  build_debug:
+    name: Build Debug
+    runs-on: ubuntu-latest
+    steps:
+      # Install the latest CMake version.
+      - uses: lukka/get-cmake@latest
+
+      - name: Run CMake consuming CMakePresets.json.
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+          configurePreset: 'debug'
+          buildPreset: 'debug'
+  build_release:
+    name: Build Release
+    runs-on: ubuntu-latest
+    steps:
+      # Install the latest CMake version.
+      - uses: lukka/get-cmake@latest
+
+      - name: Test
+        run: ls '${{ github.workspace }}'
+
+      - name: Run CMake consuming CMakePresets.json.
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+          configurePreset: 'debug'
+          buildPreset: 'debug'
