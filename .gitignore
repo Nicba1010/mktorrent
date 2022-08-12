@@ -8,6 +8,8 @@ mktorrent
 prefix
 *.torrent
 
+/build/
+
 /test/test_data.txt.torrent
 
 ### C template

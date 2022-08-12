@@ -1,0 +1,59 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default Config",
+      "description": "Default build using Ninja generator",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "hidden": true,
+      "cacheVariables": {
+        "USE_PTHREADS": "ON",
+        "USE_OPENSSL": "ON",
+        "USE_OPENSSL_DEPRECATED": "OFF",
+        "USE_LONG_OPTIONS": "ON",
+        "USE_LARGE_FILES": "ON",
+        "NO_HASH_CHECK": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": "default",
+      "hidden": false,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": "default",
+      "hidden": false,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "targets": "mktorrent"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "inherits": "default"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "inherits": "default"
+    }
+  ]
+}
